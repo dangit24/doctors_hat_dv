@@ -8,7 +8,7 @@ This Arduino project is designed to celebrate the achievement of a doctor's degr
 
 ## Components
 
-- ESP32 board (TTGO T-Display)
+- ESP32 board [TTGO T-Display](https://github.com/Xinyuan-LilyGO/TTGO-T-Display)
 - TFT display
 - Buzzer
 - Buttons (SOUND_OFF_PIN and BTN2_PIN)
@@ -19,13 +19,13 @@ This Arduino project is designed to celebrate the achievement of a doctor's degr
 
 1. **Rotating Ellipse:** The main visual element is a rotating ellipse with eccentricity and ripple amplitude, providing an animated and celebratory effect.
 
-2. **Pixel Animation:** A set of pixels move around the display, creating a dynamic and lively atmosphere.
+2. **Pixel Animation:** A set of pixels move around the display, creating a dynamic and lively atmosphere using the [TFT_eSPI](https://github.com/Bodmer/TFT_eSPI) library.
 
 3. **Victory Melody:** A victory melody plays when triggered, adding an audible element to the celebration.
 
 4. **Interactive Puzzle:** The project includes a puzzle where two potentiometers must be turned to specific positions to create a circular ellipse with minimal ripple.
 
-5. **Audible Feedback:** The buzzer provides audible feedback, changing its frequency and beep interval based on the positions of the potentiometers.
+5. **Audible Feedback:** The buzzer provides audible feedback, changing its frequency and beep interval based on the positions of the potentiometers using the ESP32's ledc functions (PWM based).
 
 6. **Interactive Buttons:** The project includes buttons for controlling sound and animation. The SOUND_OFF_PIN button toggles the sound, and the BTN2_PIN button toggles pixel animation.
 
