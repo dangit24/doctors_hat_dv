@@ -35,7 +35,7 @@ This Arduino project is designed to celebrate the achievement of a doctor's degr
 
 1. **Hardware Setup:** Connect the components as per the defined pins in the code. Ensure all connections are secure.
 
-2. **Upload Code:** Use the Arduino IDE to upload the provided code to the ESP32 board.
+2. **Upload Code:** Use the [Arduino IDE](https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html) to upload the provided code to the ESP32 board.
 
 3. **Power On:** Power on the ESP32 board, and the celebration will commence.
 
