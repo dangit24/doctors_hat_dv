@@ -58,7 +58,3 @@ This project was created by github user [dangit24].
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md). Feel free to modify and share!
-
----
-
-Feel free to add or modify sections based on additional features, usage guidelines, or any other relevant information.
