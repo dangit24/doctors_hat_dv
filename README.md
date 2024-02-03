@@ -4,7 +4,7 @@
 
 ## Overview
 
-This Arduino project is designed to celebrate the achievement of a doctor's degree by creating a decorative element for a doctor's hat. The hat features a rotating ellipse with eccentricity and ripple amplitude, accompanied by pixel animations and a victory melody. Additionally, the hat incorporates an interactive puzzle where two potentiometers must be turned to specific positions to create a circular ellipse with minimal ripple. The buzzer visualizes the potentiometer positions through audible beeps, changing in frequency and interval.
+This Arduino project is designed to celebrate the achievement of a doctor's degree by creating a decorative element for a doctor's hat. The hat features a rotating ellipse with eccentricity and ripple amplitude, accompanied by pixel animations and a [victory melody](https://gist.github.com/ataylor32/24f429e147d8b2a758d7). Additionally, the hat incorporates an interactive puzzle where two potentiometers must be turned to specific positions to create a circular ellipse with minimal ripple. The buzzer visualizes the potentiometer positions through audible beeps, changing in frequency and interval.
 
 ## Components
 
