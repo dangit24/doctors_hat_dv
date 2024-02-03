@@ -45,6 +45,23 @@ This Arduino project is designed to celebrate the achievement of a doctor's degr
 
 6. **Celebrate:** Enjoy the rotating ellipse, pixel animations, victory melody, and LED blinking as a fun and engaging decorative element for the doctor's hat.
 
+## User_Setup.h Configuration
+
+To ensure proper functionality with the TFT_eSPI library, the `User_Setup.h` file from the library must be modified with the following defines:
+
+```c
+#define ST7789_DRIVER
+#define TFT_WIDTH  135
+#define TFT_HEIGHT 240
+#define TFT_MOSI 19
+#define TFT_SCLK 18
+#define TFT_CS 5
+#define TFT_DC 16
+#define TFT_RST 23
+#define TFT_BL 4
+#define SPI_FREQUENCY  60000000
+```
+
 ## Additional Notes
 
 - The project includes comments within the code for better understanding of each section and functionality.
