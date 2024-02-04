@@ -226,7 +226,6 @@ void drawEllipseWithRipples(float eccentricity, float rippleAmplitude, unsigned 
   }
 
   sprite.fillScreen(last_flash_color);
-  // Update and draw pixels
 
   // Calculate center of the screen
   int centerX = sprite.width() / 2;
@@ -247,7 +246,7 @@ void drawEllipseWithRipples(float eccentricity, float rippleAmplitude, unsigned 
   sprite.drawFastVLine(centerX - 1, 0, sprite.height(), TFT_BLUE);
 
   // Draw rotating ellipse outline with ripples
-  for (float angle = 0; angle < 360; angle += 0.1) {
+  for (float angle = 0; angle < 360; angle += 0.3) {
     float radian = (angle + currentTime * 0.01) * PI / 180.0;
     float radian2 = (angle)*PI / 180.0;
     int x = centerX + (ellipseWidth / 2 + rippleAmplitude * sin(radian2 * 10)) * cos(radian);
@@ -255,7 +254,17 @@ void drawEllipseWithRipples(float eccentricity, float rippleAmplitude, unsigned 
     sprite.fillCircle(x, y, 2, TFT_WHITE);
   }
 
+  //Draw unity circle as a hint
+  if (!sound_on)
+    for (float angle = 0; angle < 360; angle += 10) {
+      float radian = (angle)*PI / 180.0;
+      int x = centerX + (ellipseWidth / 2) * cos(radian);
+      int y = centerY + (ellipseWidth / 2) * sin(radian);
+      sprite.drawPixel(x, y, TFT_GREEN);
+    }
+
   if (num_victories > 0 && btn2_state) {
+    // Update and draw pixels
     updatePixels();
     drawPixels();
     drawText();
@@ -277,9 +286,15 @@ bool last_led_state = false;
 
 void loop() {
   // Get current time in milliseconds
-  unsigned long currentTime = millis() % 1000000;
-  float pot1_pu = analogRead(32) / 4095.0f;
-  float pot2_pu = analogRead(33) / 4095.0f;
+  unsigned long currentTime = millis() % 1000000; //Workaround for calculations in drawEllipseWithRipples slowing down beyond this time value
+  float pot1_pu = 0;
+  float pot2_pu = 0;
+  for (int i = 0; i < 100; i++) {
+    pot1_pu += analogRead(32) / 4095.0f;
+    pot2_pu += analogRead(33) / 4095.0f;
+  }
+  pot1_pu /= 100.0;
+  pot2_pu /= 100.0;
   float diff_pot1_pu = pot1_target_pu - pot1_pu;
   float diff_pot2_pu = pot2_target_pu - pot2_pu;
   //draw rotating ellipse with eccentricity and ripple amplitude
