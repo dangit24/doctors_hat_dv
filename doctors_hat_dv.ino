@@ -332,7 +332,7 @@ void loop() {
 
   // If there are victories, alternate LED states every 500 milliseconds
   if (num_victories > 0) {
-    if (millis() - ms_last_led_blink > 500) {
+    if (millis() - ms_last_led_blink > 200) {
       ms_last_led_blink = millis();
       last_led_state = !last_led_state;
       digitalWrite(LED1_PIN, last_led_state);
