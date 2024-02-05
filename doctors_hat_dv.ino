@@ -7,6 +7,7 @@
 #define BTN2_PIN 0
 #define LED1_PIN 26
 #define LED2_PIN 27
+#define LED_BLINK_INTERVAL_MS 200
 
 // Define maximum number of pixels
 #define MAX_PIXELS 100
@@ -332,7 +333,7 @@ void loop() {
 
   // If there are victories, alternate LED states every 500 milliseconds
   if (num_victories > 0) {
-    if (millis() - ms_last_led_blink > 200) {
+    if (millis() - ms_last_led_blink > LED_BLINK_INTERVAL_MS) {
       ms_last_led_blink = millis();
       last_led_state = !last_led_state;
       digitalWrite(LED1_PIN, last_led_state);
