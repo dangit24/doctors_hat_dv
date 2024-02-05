@@ -9,7 +9,7 @@
 #define LED2_PIN 27
 #define LED_BLINK_INTERVAL_MS 200
 
-// Define maximum number of pixels
+// Define maximum number of pixels for starfield effect
 #define MAX_PIXELS 100
 
 TFT_eSPI tft = TFT_eSPI();
@@ -25,14 +25,14 @@ int num_victories = 0;
 long ms_last_beep1 = 0;
 long ms_last_beep2 = 0;
 
-float target_freq = 880.0f;
-float pot1_target_pu = 0.6f;
-float pot2_target_pu = 0.4f;
+float target_freq = 880.0f; //audio frequency to set with both potis for victory 
+float pot1_target_pu = 0.6f; //will be initialized randomly in setup()
+float pot2_target_pu = 0.4f; //will be initialized randomly in setup()
 long ms_in_target_range = 0;
 long ms_flashing_started = 0;
 int num_btn_pressed = 0;
 
-// Structure to represent a pixel
+// Structure to represent a pixel of the starfield effect
 struct Pixel {
   float x;
   float y;
@@ -290,6 +290,7 @@ void loop() {
   unsigned long currentTime = millis() % 1000000; //Workaround for calculations in drawEllipseWithRipples slowing down beyond this time value
   float pot1_pu = 0;
   float pot2_pu = 0;
+  // Use oversampling to smooth out the analog signal
   for (int i = 0; i < 100; i++) {
     pot1_pu += analogRead(32) / 4095.0f;
     pot2_pu += analogRead(33) / 4095.0f;
